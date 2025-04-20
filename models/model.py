@@ -101,7 +101,7 @@ class WSAD(Module):
         x = self.embedding(x)
         x = self.selfatt(x)
         
-        normal_feats, normal_scores = self.get_normal_scores(x, n)
+        normal_feats, normal_scores = self.get_normal_scores(x, n)#(b,t,32 ,b,t,16) ,b,t as scores 
         
         anchors = [bn.running_mean for bn in self.normal_head.bns]
         variances = [bn.running_var for bn in self.normal_head.bns]
